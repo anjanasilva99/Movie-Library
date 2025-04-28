@@ -13,6 +13,9 @@
           <li><a href="#">Schedule</a></li>
           <li><a href="#">Movie Library</a></li>
           <li><a href="#">Location & Contact</a></li>
+          <li class="menu-icon" @click="toggleSidebar">
+            <img src="@/assets/icons/Menu White.svg" alt="Menu">
+          </li>
         </ul>
       </nav>
       
@@ -32,6 +35,26 @@
           <li><a href="#" @click="closeMenu">Gallery</a></li>
         </ul>
       </div>
+      
+      <!-- Gallery Sidebar -->
+      <div class="gallery-sidebar" :class="{ active: sidebarOpen }">
+        <div class="sidebar-close">
+          <span class="close-btn" @click="toggleSidebar">
+            <img src="@/assets/icons/Close White.svg" alt="Close" class="close-icon">
+            <!-- If you don't have this icon, you can use "&times;" instead -->
+          </span>
+        </div>
+        <div class="sidebar-content">
+          <div class="sidebar-menu-items">
+            <div class="sidebar-menu-item">
+              <a href="#">GALLERY</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Overlay when sidebar is open -->
+      <div class="overlay" v-if="sidebarOpen" @click="toggleSidebar"></div>
     </div>
   </header>
 </template>
@@ -41,7 +64,8 @@ export default {
   name: 'HeaderNav',
   data() {
     return {
-      menuOpen: false
+      menuOpen: false,
+      sidebarOpen: false
     }
   },
   methods: {
@@ -50,6 +74,15 @@ export default {
     },
     closeMenu() {
       this.menuOpen = false
+    },
+    toggleSidebar() {
+      this.sidebarOpen = !this.sidebarOpen
+      // Add body class to prevent scrolling when sidebar is open
+      if (this.sidebarOpen) {
+        document.body.classList.add('no-scroll')
+      } else {
+        document.body.classList.remove('no-scroll')
+      }
     }
   }
 }
@@ -87,6 +120,7 @@ header {
 .desktop-nav ul {
   display: flex;
   list-style: none;
+  align-items: center;
 }
 
 .desktop-nav ul li {
@@ -118,6 +152,17 @@ header {
 .desktop-nav ul li a:focus::after,
 .desktop-nav ul li a.active::after {
   width: 100%;
+}
+
+.menu-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon img {
+  height: 20px;
+  width: auto;
 }
 
 .hamburger {
@@ -157,6 +202,94 @@ header {
   font-weight: bold;
 }
 
+/* Gallery Sidebar Styles - Updated to match design */
+.gallery-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100%;
+  background-color: #000;
+  z-index: 1000;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+}
+
+.gallery-sidebar.active {
+  right: 0;
+}
+
+.sidebar-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.close-btn {
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 40px;
+}
+
+.sidebar-menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-menu-item {
+  padding: 10px 0;
+}
+
+.sidebar-menu-item a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: opacity 0.3s ease;
+  display: block;
+}
+
+.sidebar-menu-item a:hover {
+  opacity: 0.8;
+}
+
+/* Overlay style when sidebar is open */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 999;
+}
+
+/* For preventing scrolling when sidebar is open */
+:global(body.no-scroll) {
+  overflow: hidden;
+}
+
+/* Hide sidebar on mobile */
 @media (max-width: 992px) {
   .desktop-nav {
     display: none;
@@ -164,6 +297,15 @@ header {
   
   .hamburger {
     display: block;
+  }
+  
+  .menu-icon {
+    display: none;
+  }
+  
+  .gallery-sidebar {
+    width: 100%;
+    right: -100%;
   }
 }
 </style>
