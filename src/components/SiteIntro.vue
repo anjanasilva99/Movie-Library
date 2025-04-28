@@ -2,7 +2,7 @@
   <section class="site-intro">
     <div class="container">
       <h1>MOVIE LIBRARY</h1>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      <p>Discover our extensive collection of classic films, blockbuster hits, and independent cinema. Browse through thousands of titles across all genres and eras, all available for your viewing pleasure.</p>
     </div>
   </section>
 </template>
