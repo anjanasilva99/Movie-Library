@@ -1,7 +1,9 @@
 <template>
   <header>
     <div class="container header-container">
-      <div class="logo">Logoipsum</div>
+      <div class="logo">
+         <img src="@/assets/logos/Logo-White.svg" alt="Logoipsum">
+      </div>
       
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
@@ -73,6 +75,13 @@ header {
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
 }
 
 .desktop-nav ul {
@@ -90,6 +99,25 @@ header {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: bold;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.desktop-nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.desktop-nav ul li a:hover::after,
+.desktop-nav ul li a:focus::after,
+.desktop-nav ul li a.active::after {
+  width: 100%;
 }
 
 .hamburger {
