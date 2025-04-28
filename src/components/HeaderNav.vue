@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="container header-container">
-      <div class="logo">Movie Library</div>
+      <div class="logo">Logoipsum</div>
       
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
