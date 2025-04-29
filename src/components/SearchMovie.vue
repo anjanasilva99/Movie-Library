@@ -101,9 +101,11 @@ export default {
 .search-box input {
   width: 100%;
   padding: 12px 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #444;
   border-radius: 4px;
   font-size: 16px;
+  background-color: #333;
+  color: #fff;
 }
 
 .search-results {
@@ -112,8 +114,8 @@ export default {
   width: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background: white;
-  border: 1px solid #ddd;
+  background: #222;
+  border: 1px solid #444;
   border-radius: 4px;
   margin-top: 5px;
   max-height: 400px;
@@ -124,12 +126,12 @@ export default {
 .search-result-item {
   display: flex;
   padding: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #333;
   cursor: pointer;
 }
 
 .search-result-item:hover {
-  background-color: #f7f7f7;
+  background-color: #2a2a2a;
 }
 
 .result-image {
@@ -145,10 +147,11 @@ export default {
 
 .result-info h4 {
   margin-bottom: 5px;
+  color: #fff;
 }
 
 .result-info p {
   font-size: 14px;
-  color: #666;
+  color: #ccc;
 }
 </style>

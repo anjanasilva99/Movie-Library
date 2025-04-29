@@ -17,19 +17,22 @@ export default {
 .site-intro {
   padding: 60px 0;
   text-align: center;
-  background-color: #f0f0f0;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .site-intro h1 {
   font-size: 36px;
   margin-bottom: 20px;
   text-transform: uppercase;
+  color: #ffffff;
 }
 
 .site-intro p {
   max-width: 800px;
   margin: 0 auto;
   font-size: 18px;
+  color: #e0e0e0;
 }
 
 @media (max-width: 768px) {
