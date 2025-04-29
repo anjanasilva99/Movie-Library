@@ -4,7 +4,7 @@
     <main>
       <MainVisual />
       <SiteIntro />
-      <section class="movie-section">
+      <section id="movie-section" class="movie-section">
         <div class="container">
           <h2>Collect your favourites</h2>
           <SearchMovie @add-movie="addMovie" />
@@ -14,7 +14,7 @@
           />
         </div>
       </section>
-      <section class="contact-section">
+      <section id="contact-section" class="contact-section">
         <div class="container contact-container">
           <ContactForm />
           <GoogleMap />

@@ -8,11 +8,11 @@
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Our Screens</a></li>
-          <li><a href="#">Schedule</a></li>
-          <li><a href="#">Movie Library</a></li>
-          <li><a href="#">Location & Contact</a></li>
+          <li><a href="#" @click.prevent="scrollToSection('top')">Home</a></li>
+          <li><a href="#" @click.prevent="scrollToSection('screens')">Our Screens</a></li>
+          <li><a href="#" @click.prevent="scrollToSection('schedule')">Schedule</a></li>
+          <li><a href="#" @click.prevent="scrollToSection('movie-section')">Movie Library</a></li>
+          <li><a href="#" @click.prevent="scrollToSection('contact-section')">Location & Contact</a></li>
           <li class="menu-icon" @click="toggleSidebar">
             <img src="@/assets/icons/Menu White.svg" alt="Menu">
           </li>
@@ -27,12 +27,12 @@
       <!-- Mobile Menu -->
       <div class="mobile-menu" :class="{ active: menuOpen }">
         <ul>
-          <li><a href="#" @click="closeMenu">Home</a></li>
-          <li><a href="#" @click="closeMenu">Our Screens</a></li>
-          <li><a href="#" @click="closeMenu">Schedule</a></li>
-          <li><a href="#" @click="closeMenu">Movie Library</a></li>
-          <li><a href="#" @click="closeMenu">Location & Contact</a></li>
-          <li><a href="#" @click="closeMenu">Gallery</a></li>
+          <li><a href="#" @click.prevent="scrollToSection('top'); closeMenu()">Home</a></li>
+          <li><a href="#" @click.prevent="scrollToSection('screens'); closeMenu()">Our Screens</a></li>
+          <li><a href="#" @click.prevent="scrollToSection('schedule'); closeMenu()">Schedule</a></li>
+          <li><a href="#" @click.prevent="scrollToSection('movie-section'); closeMenu()">Movie Library</a></li>
+          <li><a href="#" @click.prevent="scrollToSection('contact-section'); closeMenu()">Location & Contact</a></li>
+          <li><a href="#" @click="closeMenu()">Gallery</a></li>
         </ul>
       </div>
       
@@ -77,11 +77,36 @@ export default {
     },
     toggleSidebar() {
       this.sidebarOpen = !this.sidebarOpen
-      // Add body class to prevent scrolling when sidebar is open
       if (this.sidebarOpen) {
         document.body.classList.add('no-scroll')
       } else {
         document.body.classList.remove('no-scroll')
+      }
+    },
+    scrollToSection(sectionId) {
+      this.closeMenu()
+      
+      if (sectionId === 'top') {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+        return
+      }
+      
+      const section = document.getElementById(sectionId)
+      
+      if (section) {
+        const headerHeight = document.querySelector('header').offsetHeight
+        const elementPosition = section.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+      } else {
+        console.error(`Section with id "${sectionId}" not found`)
       }
     }
   }
