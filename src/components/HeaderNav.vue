@@ -12,7 +12,7 @@
           <li><a href="#" @click.prevent="scrollToSection('screens')">Our Screens</a></li>
           <li><a href="#" @click.prevent="scrollToSection('schedule')">Schedule</a></li>
           <li><a href="#" @click.prevent="scrollToSection('movie-section')">Movie Library</a></li>
-          <li><a href="#" @click.prevent="scrollToSection('contact-section')">Location & Contact</a></li>
+          <li class="hide-on-tablet"><a href="#" @click.prevent="scrollToSection('contact-section')">Location & Contact</a></li>
           <li class="menu-icon" @click="toggleSidebar">
             <img src="@/assets/icons/Menu White.svg" alt="Menu">
           </li>
@@ -33,6 +33,7 @@
           <li><a href="#" @click.prevent="scrollToSection('movie-section'); closeMenu()">Movie Library</a></li>
           <li><a href="#" @click.prevent="scrollToSection('contact-section'); closeMenu()">Location & Contact</a></li>
           <li><a href="#" @click="closeMenu()">Gallery</a></li>
+
         </ul>
       </div>
       
@@ -41,11 +42,16 @@
         <div class="sidebar-close">
           <span class="close-btn" @click="toggleSidebar">
             <img src="@/assets/icons/Close White.svg" alt="Close" class="close-icon">
-            <!-- If you don't have this icon, you can use "&times;" instead -->
           </span>
         </div>
         <div class="sidebar-content">
           <div class="sidebar-menu-items">
+            <!-- <div class="sidebar-menu-item tablet-only-item">
+              <a href="#" @click.prevent="scrollToSection('movie-section'); toggleSidebar()">Movie Library</a>
+            </div> -->
+            <div class="sidebar-menu-item tablet-only-item">
+              <a href="#" @click.prevent="scrollToSection('contact-section'); toggleSidebar()">Location & Contact</a>
+            </div>
             <div class="sidebar-menu-item">
               <a href="#">GALLERY</a>
             </div>
@@ -314,8 +320,39 @@ header {
   overflow: hidden;
 }
 
+.tablet-only-item {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  /* Hide Movie Library and Location & Contact tabs in the navbar */
+  .hide-on-tablet {
+    display: none;
+  }
+  
+  /* Show these tabs in the sidebar instead */
+  .tablet-only-item {
+    display: block;
+  }
+  
+  /* Desktop nav stays visible on tablet (unlike mobile) */
+  .desktop-nav {
+    display: flex;
+  }
+  
+  /* Keep hamburger hidden on tablet */
+  .hamburger {
+    display: none;
+  }
+  
+  /* Keep menu icon visible on tablet */
+  .menu-icon {
+    display: flex;
+  }
+}
+
 /* Hide sidebar on mobile */
-@media (max-width: 992px) {
+@media (max-width: 767px) {
   .desktop-nav {
     display: none;
   }
@@ -331,6 +368,11 @@ header {
   .gallery-sidebar {
     width: 100%;
     right: -100%;
+  }
+  
+  /* Hide tablet-specific items on mobile */
+  .tablet-only-item {
+    display: none;
   }
 }
 </style>

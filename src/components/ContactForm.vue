@@ -41,7 +41,13 @@
       
       <div class="form-group">
         <label for="phone">Telephone</label>
-        <input type="tel" id="phone" v-model="form.phone">
+        <input 
+          type="tel" 
+          id="phone" 
+          v-model="form.phone"
+          :class="{ 'error': errors.phone }"
+        >
+        <span class="error-message" v-if="errors.phone">{{ errors.phone }}</span>
       </div>
       
       <div class="form-group">
@@ -86,6 +92,7 @@ export default {
         firstName: '',
         lastName: '',
         email: '',
+        phone: '',
         message: '',
         termsAccepted: ''
       },
@@ -101,6 +108,7 @@ export default {
         firstName: '',
         lastName: '',
         email: '',
+        phone: '',
         message: '',
         termsAccepted: ''
       }
@@ -132,6 +140,12 @@ export default {
         isValid = false
       }
       
+      // Validate Phone (if provided)
+      if (this.form.phone.trim() && !this.validatePhone(this.form.phone)) {
+        this.errors.phone = 'Please enter a valid phone number'
+        isValid = false
+      }
+      
       // Validate Terms Acceptance
       if (!this.form.termsAccepted) {
         this.errors.termsAccepted = 'You must accept the Terms & Conditions'
@@ -143,6 +157,10 @@ export default {
     validateEmail(email) {
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       return re.test(String(email).toLowerCase())
+    },
+    validatePhone(phone) {
+      const re = /^(\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3,4})[-. ]*(\d{3,4})$/;
+      return re.test(phone);
     },
     submitForm() {
       if (this.validateForm()) {
