@@ -53,20 +53,20 @@ export default {
         {
           id: 1,
           name: 'Batman Returns',
-          summary: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut…',
-          image: 'https://via.placeholder.com/300x450?text=Batman+Returns'
+          summary: 'When a corrupt businessman and the grotesque Penguin plot to take control of Gotham City, only Batman can stop them, while the mysterious Catwoman has her own agenda...',
+          image: require('@/assets/images/Batman.jpg')
         },
         {
           id: 2,
           name: 'Wild Wild West',
-          summary: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut…',
-          image: 'https://via.placeholder.com/300x450?text=Wild+Wild+West'
+          summary: 'Two gunslinging secret agents team up to protect President Grant and the United States from a diabolical inventor with a steampunk weapon in this action-comedy western...',
+          image: require('@/assets/images/Wild-West.jpg')
         },
         {
           id: 3,
           name: 'The Amazing Spiderman',
-          summary: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut…',
-          image: 'https://via.placeholder.com/300x450?text=The+Amazing+Spiderman'
+          summary: "Peter Parker finds a clue that might help him understand why his parents disappeared when he was young, which leads him to Oscorp and his father's former partner...",
+          image: require('@/assets/images/Spiderman.jpg')
         }
       ]
     }
@@ -76,7 +76,7 @@ export default {
       // Check if movie already exists in the grid
       const exists = this.selectedMovies.some(m => m.id === movie.id)
       if (!exists) {
-        this.selectedMovies.push(movie)
+        this.selectedMovies.unshift(movie)
       }
     },
     removeMovie(movieId) {
