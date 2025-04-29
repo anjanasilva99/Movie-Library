@@ -1,7 +1,15 @@
 <template>
   <section class="main-visual">
-    <div class="hero-image">
-      <img src="https://via.placeholder.com/1920x800?text=Hero+Image" alt="Movie Library Hero Image">
+    <div class="hero-video">
+      <video 
+        autoplay 
+        muted 
+        loop 
+        poster="@/assets/images/Header-Image.jpg"
+      >
+        <source src="@/assets/videos/Header Video.mp4" type="video/mp4">
+        <img src="@/assets/images/Header-Image.jpg" alt="Movie Library Hero Image" class="fallback-image">
+      </video>
     </div>
   </section>
 </template>
@@ -27,6 +35,23 @@ export default {
 }
 
 .hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fallback-image {
   width: 100%;
   height: 100%;
   object-fit: cover;

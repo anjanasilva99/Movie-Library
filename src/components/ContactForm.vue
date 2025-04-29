@@ -1,7 +1,7 @@
 <template>
   <div class="contact-form">
     <h2>How to reach us</h2>
-    <p>Lorem ipsum dolor sit amet, consetetur.</p>
+    <p>Have questions or feedback about our movie collection? Fill out this form to get in touch with our team. We'll respond as soon as possible.</p>
     
     <form @submit.prevent="submitForm">
       <div class="form-row">
