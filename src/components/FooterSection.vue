@@ -33,7 +33,7 @@ export default {
 
 <style scoped>
 footer {
-  background-color: #000;
+  background-color: #1a1a1a;
   color: #fff;
   padding: 40px 0;
 }
@@ -79,7 +79,7 @@ footer {
 
 .photo-credits {
   font-size: 12px;
-  color: #999;
+  color: #cccccc;
   margin-top: 20px;
 }
 

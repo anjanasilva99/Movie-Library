@@ -202,12 +202,14 @@ label {
 input, textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
   border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #ffffff;
 }
 
 input.error, textarea.error {
-  border-color: red;
+  border-color: #ff5252;
 }
 
 .error-message {

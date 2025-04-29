@@ -89,18 +89,21 @@ export default {
 <style>
 .movie-section {
   padding: 60px 0;
-  background-color: #f7f7f7;
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
 
 .movie-section h2 {
   text-align: center;
   margin-bottom: 30px;
   font-size: 28px;
+  color: #ffffff;
 }
 
 .contact-section {
   padding: 60px 0;
-  background-color: #fff;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .contact-container {
