@@ -169,16 +169,18 @@ export default {
 <style scoped>
 .contact-form {
   flex: 1;
+  color: #ffffff;
 }
 
 .contact-form h2 {
   font-size: 28px;
   margin-bottom: 10px;
+  color: #ffffff;
 }
 
 .contact-form p {
   margin-bottom: 25px;
-  color: #666;
+  color: #cccccc;
 }
 
 .form-row {
@@ -231,15 +233,16 @@ input.error, textarea.error {
 
 .required-fields {
   font-size: 12px;
-  color: #666;
+  color: #cccccc;
   margin-bottom: 10px;
 }
 
 .submit-btn {
   padding: 10px 25px;
-  background-color: #000;
+  background-color: #2a2a2a;
   color: #fff;
   border: none;
+  border-radius: 4px;
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
