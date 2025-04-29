@@ -24,10 +24,10 @@ export default {
 
 <style scoped>
 .movie-card {
-  background-color: #fff;
+  background-color: #3a3a3a;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s;
 }
 
@@ -37,7 +37,7 @@ export default {
 
 .movie-image {
   position: relative;
-  height: 250px;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -67,11 +67,12 @@ export default {
 .movie-card h3 {
   padding: 15px 15px 5px;
   font-size: 18px;
+  color: #ffffff;
 }
 
 .movie-card p {
   padding: 0 15px 15px;
-  color: #666;
+  color: #cccccc;
   font-size: 14px;
 }
 </style>
